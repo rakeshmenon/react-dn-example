@@ -7,7 +7,7 @@ class PageWrapper extends React.Component {
         <div id="page-container" className="wrap padded has-sidebar">
           <div id="page-main-content">
             <div id="page-main-content-inner" role="main">
-              {React.cloneElement(this.props.children, this.props)}
+              { React.cloneElement(this.props.children, this.props) }
             </div>
           </div>
         </div>

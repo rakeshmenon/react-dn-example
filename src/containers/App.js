@@ -22,7 +22,7 @@ class App extends Component {
       <div>
         <Header {...this.props}/>
         <PageWrapper>
-          {React.cloneElement(this.props.children, this.props)}
+          { React.cloneElement(this.props.children, this.props) }
         </PageWrapper>
       </div>
     );
