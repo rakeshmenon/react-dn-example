@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import App from './App';
-import LoginPage from './LoginPage';
-import NewsFeed from './NewsFeed';
+import App from './containers/App';
+import LoginPage from './components/Login';
+import NewsFeed from './containers/NewsFeed';
 
 const router = (
   <Router history={browserHistory}>

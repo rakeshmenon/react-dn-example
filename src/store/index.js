@@ -9,8 +9,7 @@ import posts from './data/feed';
 
 // create an object for the default data
 const defaultState = {
-  feed,
-  user
+  feed
 };
 
 const store = createStore(rootReducer, defaultState);
