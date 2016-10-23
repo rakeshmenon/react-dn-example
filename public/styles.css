@@ -953,6 +953,12 @@ body {
     float: right
 }
 
+#header-right-wrap > span {
+    color: white;
+    position: relative;
+    top: 2px;
+}
+
 @media (min-width:768px) {
     #header-right-wrap {
         margin-top: 11px
@@ -2200,7 +2206,8 @@ body {
 
 .story-current-votes {
     position: relative;
-    left: 11px;
+    display: block;
+    text-align: center;
     top: 4px;
     font-size: 1em;
     z-index: 1;

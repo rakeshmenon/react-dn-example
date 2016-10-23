@@ -6,11 +6,13 @@ import FavoriteStar from './FavoriteStar';
 
 class FeedItem extends React.Component {
   render() {
+    var { upVote, downVote, toggleFavorite } = this.props;
+
     return (
-      <li className="story-list-item montana-list-item " data-story-id="75773">
-        <ItemVote/>
-        <ItemDetails/>
-        <FavoriteStar/>
+      <li className="story-list-item montana-list-item">
+        <ItemVote votes={this.props.votes} upVote={upVote} downVote={downVote} id={this.props._id}/>
+        <ItemDetails {...this.props}/>
+        <FavoriteStar isStarred={this.props.isStarred} id={this.props._id} toggleFavorite={toggleFavorite}/>
       </li>
     );
   }

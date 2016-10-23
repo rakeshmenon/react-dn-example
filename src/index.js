@@ -1,18 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
+import { Provider } from 'react-redux';
 
 import App from './containers/App';
-import LoginPage from './components/Login';
+import Login from './components/Login';
 import NewsFeed from './containers/NewsFeed';
 
+import store, { history } from './store';
+
 const router = (
-  <Router history={browserHistory}>
-    <Route path='/' component={App}>
-      <IndexRoute component={LoginPage}></IndexRoute>
-      <Route path='/feed' component={NewsFeed}></Route>
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path='/' component={App}>
+        <IndexRoute component={NewsFeed}></IndexRoute>
+        <Route path='/login' component={Login}></Route>
+        <Route path='/feed/(:filter)' component={NewsFeed}></Route>
+      </Route>
+    </Router>
+  </Provider>
 );
 
 ReactDOM.render(

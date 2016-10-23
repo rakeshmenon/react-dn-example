@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-class LoginPage extends Component {
+import { withRouter } from 'react-router';
+
+class Login extends Component {
   constructor(props) {
     super(props);
     this.navigateToFeed = this.navigateToFeed.bind(this);
@@ -8,7 +10,9 @@ class LoginPage extends Component {
 
   navigateToFeed(e) {
     e.preventDefault();
-    this.props.history.push('/feed');
+
+    this.props.actions.loginUser(this.refs.email.value);
+    this.props.router.push('/');
   }
 
   render() {
@@ -18,7 +22,7 @@ class LoginPage extends Component {
               Login
           </h1>
           <form acceptCharset="UTF-8" action="/users" className="rte" id="new_user" method="post" onSubmit={this.navigateToFeed}>
-              <input type="email" className="standard-text-field" id="user_email" name="user[email]" placeholder="Email address" required="required" size="30"/>
+              <input type="email" ref="email" className="standard-text-field" id="user_email" name="user[email]" placeholder="Email address" required="required" size="30"/>
               <div className="password-field-wrapper">
                   <input className="standard-text-field" id="user_password" name="user[password]" placeholder="Password" required="required" type="password"/>
               </div>
@@ -31,4 +35,4 @@ class LoginPage extends Component {
   }
 }
 
-export default LoginPage;
+export default withRouter(Login);

@@ -7,9 +7,9 @@ class NewsFeed extends React.Component {
   render() {
     return (
       <div className="montana-list">
-        <FeedFilterNav/>
-        <FeedHero/>
-        <FeedList/>
+        <FeedFilterNav filter={this.props.params.filter}/>
+        {!this.props.user.isLoggedIn ? <FeedHero/> : ''}
+        <FeedList {...this.props}/>
       </div>
     );
   };
