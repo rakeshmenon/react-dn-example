@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router';
 
+import { withRouter } from 'react-router';
+
 class Header extends React.Component {
   logoutUser(e) {
     e.preventDefault();
     this.props.actions.logoutUser();
+    this.props.router.push('/login');
   }
 
   render() {
@@ -44,4 +47,4 @@ class Header extends React.Component {
   };
 }
 
-export default Header;
+export default withRouter(Header);
