@@ -1,20 +1,21 @@
 import React from 'react';
+
 import FeedItem from '../components/FeedItem';
+import * as filters from '../constants/filters';
 
 class FeedList extends React.Component {
   render() {
-    var { feed, actions, params } = this.props, feedList;
+    let { feed, actions, params } = this.props,
+      feedList = feed.slice(0);
 
     switch (params.filter) {
-      case 'topvoted':
-        feedList = feed.slice(0);
+      case filters.FILTER_TOPVOTED:
         feedList.sort((a, b) => a.votes < b.votes);
         break;
-      case 'starred':
-        feedList = feed.filter(item => item.isStarred);
+      case filters.FILTER_STARRED:
+        feedList = feedList.filter(item => item.isStarred);
         break;
       default:
-        feedList = feed;
         break;
     }
 
