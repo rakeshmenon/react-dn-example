@@ -3,7 +3,6 @@ import * as actions from '../constants/actions';
 let initialState = [];
 
 function feed(state = initialState, action) {
-  console.log('FEED');
   switch (action.type) {
 
     case actions.VOTE_UP:

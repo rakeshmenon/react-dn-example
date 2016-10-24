@@ -1,9 +1,11 @@
 import * as actions from '../constants/actions';
 
-let initialState = {};
+let initialState = {
+  email: '',
+  isLoggedIn: false
+};
 
 function user(state = initialState, action) {
-  console.log('USER');
   switch (action.type) {
 
     case actions.LOGIN_USER:
